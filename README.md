@@ -1,4 +1,4 @@
-card-swipe-data-reader
+html5-oscilloscope
 ======================
 
-allows for magnetic card swipe data input using the square card reader plugged into the headphone port of your laptop or tablet
+oscilloscope - runs in browser and uses sound card for input
