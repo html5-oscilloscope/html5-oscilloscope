@@ -8,6 +8,7 @@
   body h1{text-align:center;}
   
   .oscilloscope{border:1px solid silver;border-radius:4px;margin:10px 10px 10px 10px;padding:0px;}
+  .buttonwrapper{border:1px solid silver;border-radius:4px;margin:10px 10px 10px 10px;padding:0px;background:silver;}
   .oscilloscope1{min-height:50px;}
 </style>
 <link rel="stylesheet" href="jquery-ui.css" />
@@ -49,10 +50,10 @@ function reccapture(){window.rec.getBuffer(function(b){window.recbuffer=b;window
 </head>
 <body>
 <h1>html5-oscilloscope</h1>
-<div>
+<div class="buttonwrapper">
   <input type="button" value="start" onclick="recstart();"/>
-  <input type="button" value="start" onclick="recstop();"/>
-  <input type="button" value="start" onclick="reccapture();"/>
+  <input type="button" value="stop" onclick="recstop();"/>
+  <input type="button" value="cspture" onclick="reccapture();"/>
 </div>
 <div class="oscilloscope oscilloscope1"></div>
 
