@@ -22,6 +22,8 @@ td{border:0px solid green;}
     <input value="update2" type="button" onclick="utdiv2()"/>
 </div>
 <script>
+var a1=[];
+for(var i=0;i<500;i++){a1.push(10);}
 var i = 1;
 var r = 0;
 var g = 0;
@@ -31,7 +33,9 @@ var cssp=createCssPlot(tdiv ,500,100);
 
 function utdiv1()
 {
-cssp.updatePlot([i++,i,i,i,i,i,i,i,i,i,i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i],0,true,'rgb('+r+','+g+','+b+');');
+    i++;i++;
+    for(var j=0;j<a1.length;j++){a1[j]=a1[j]+(i);}
+cssp.updatePlot(a1,0,true,'rgb('+r+','+g+','+b+');');
 r+=1;
 g+=5;
 b+=9;
@@ -39,6 +43,8 @@ b+=9;
 }
 function utdiv2()
 {
+    i++;i++;
+    for(var j=0;j<a1.length;j++){a1[j]=a1[j]+(i);}
     cssp.updatePlot([i++,i,i,i,i,i,i,i,i,i,i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i],0,false,'rgb('+r+','+g+','+b+');');
 r+=1;
 g+=5;
