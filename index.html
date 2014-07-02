@@ -18,9 +18,43 @@
 <script src="jquery.min.js"></script>
 <script src="jquery-ui.min.js"></script>
 <script src="cssplot.js"></script>
+<script src="recorder.js"></script>
+<script>
+window.rec = null;
+window.recbuffer=null;
+function init()
+{
+  navigator.getUserMedia  = navigator.getUserMedia ||
+                          navigator.webkitGetUserMedia ||
+                          navigator.mozGetUserMedia ||
+                          navigator.msGetUserMedia;
+
+  var errorCallback = function(e){document.querySelector('.oscilloscope1').html("<h2 style=\"color:red;\">Error - See console log.</h2>");console.log(e);};
+  if (navigator.getUserMedia) 
+  {
+    navigator.getUserMedia({audio: true, video: true}, function(stream) {
+      window.rec = new Recorder(stream);
+    }, errorCallback);
+  } else {
+    document.querySelector('.oscilloscope1').html("<h2 style=\"color:red;\">Error - please run in Chrome 35.0.1916.153 or newer.</h2>");
+  }
+}
+
+document.onload=function(){init();}
+function recstart(){window.rec.start();}
+function recstop(){window.rec.stop();}
+function reccapture(){window.rec.getBuffer(function(b){window.recbuffer=b;window.rec.clear();});}
+  
+</script>
 </head>
 <body>
 <h1>html5-oscilloscope</h1>
+<div>
+  <input type="button" value="start" onclick="recstart();"/>
+  <input type="button" value="start" onclick="recstop();"/>
+  <input type="button" value="start" onclick="reccapture();"/>
+</div>
 <div class="oscilloscope oscilloscope1"></div>
+
 </body>
 </html>
