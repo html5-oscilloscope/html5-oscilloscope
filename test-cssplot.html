@@ -17,14 +17,33 @@ td{border:0px solid green;}
 <body>
 <span style="display:inline-block;border:2px solid red;" id="tdiv"></span>
 <hr/>
-<div><input value="update" type="button" onclick="utdiv()"/></div>
+<div>
+    <input value="update1" type="button" onclick="utdiv1()"/>
+    <input value="update2" type="button" onclick="utdiv2()"/>
+</div>
 <script>
-function utdiv()
-{
+var i = 1;
+var r = 0;
+var g = 0;
+var b = 0;
 var tdiv = document.getElementById('tdiv');
-tdiv.innerHTML='';
 var cssp=createCssPlot(tdiv ,500,100);
-cssp.updatePlot([1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2])
+
+function utdiv1()
+{
+cssp.updatePlot([i++,i,i,i,i,i,i,i,i,i,i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i],true,'rgb('+r+','+g+','+b+');');
+r+=1;
+g+=5;
+b+=9;
+
+}
+function utdiv2()
+{
+    cssp.updatePlot([i++,i,i,i,i,i,i,i,i,i,i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i,2*i],false,'rgb('+r+','+g+','+b+');');
+r+=1;
+g+=5;
+b+=9;
+
 }
 </script>
 </body>
