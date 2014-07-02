@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+
+<style>
+td{border:1px solid green;}
+</style>
+<script src="cssplot.js"></script>
+
+</head>
+<body>
+<div style="border:2px solid red;" id="tdiv"></div>
+<div><input value="update" type="button" onclick="utdiv()"/></div>
+<script>
+function utdiv()
+{
+var tdiv = document.getElementById('tdiv');
+tdiv.innerHTML='';
+var cssp=createCssPlot(tdiv ,500,100);
+cssp.updatePlot([1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2])
+}
+</script>
+</body>
+</html>
