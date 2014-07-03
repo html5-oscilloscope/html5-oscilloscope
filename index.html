@@ -27,12 +27,18 @@ window.recerror=function(){alert("Error: window.rec is not defined.");}
 window.rec = {"getBuffer":window.recerror,"start":window.recerror,"start":window.recerror,"clear":window.recerror};
 window.recbuffer=null;
 window.astream = null;
+window.audio_context=null;
 function init()
 {
   navigator.getUserMedia  = navigator.getUserMedia ||
                           navigator.webkitGetUserMedia ||
                           navigator.mozGetUserMedia ||
                           navigator.msGetUserMedia;
+      window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext;
+      window.audio_context = new window.AudioContext;
+      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+      window.URL = window.URL || window.webkitURL;
+      
 
   var errorCallback = function(e){document.querySelector('.oscilloscope1').innerHTML=("<h2 style=\"color:red;\">Error - See console log.</h2>");console.log(e);};
   if (navigator.getUserMedia) 
