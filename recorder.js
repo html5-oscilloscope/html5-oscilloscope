@@ -3,26 +3,22 @@
   var WORKER_PATH = 'recorderWorker.js';
 
   var Recorder = function(source, cfg){
-    window.audiosource=source;
     var config = cfg || {};
     var bufferLen = config.bufferLen || 4096;
-    //this.context = /*source.context*/;
-    /*
+    this.context = source.context;
     this.node = (this.context.createScriptProcessor ||
                  this.context.createJavaScriptNode).call(this.context,
                                                          bufferLen, 2, 2);
-    */
     var worker = new Worker(config.workerPath || WORKER_PATH);
     worker.postMessage({
       command: 'init',
       config: {
-        sampleRate: /*this.context.*/window.audio_context.sampleRate
+        sampleRate: this.context.sampleRate
       }
     });
     var recording = false,
       currCallback;
 
-/*
     this.node.onaudioprocess = function(e){
       if (!recording) return;
       worker.postMessage({
@@ -33,7 +29,6 @@
         ]
       });
     }
-*/
 
     this.configure = function(cfg){
       for (var prop in cfg){
@@ -75,8 +70,8 @@
       currCallback(blob);
     }
 
-    //source.connect(this.node);
-    //this.node.connect(this.context.destination);    //this should not be necessary
+    source.connect(this.node);
+    this.node.connect(this.context.destination);    //this should not be necessary
   };
 
   Recorder.forceDownload = function(blob, filename){
