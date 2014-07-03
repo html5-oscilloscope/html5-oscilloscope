@@ -27,6 +27,7 @@ window.recerror=function(){alert("Error: window.rec is not defined.");}
 window.rec = {"getBuffer":window.recerror,"record":window.recerror,"start":window.recerror,"clear":window.recerror};
 window.recbuffer=null;
 window.astream = null;
+window.recumedia=null;
 window.audio_context=null;
 function init()
 {
@@ -43,10 +44,11 @@ function init()
   var errorCallback = function(e){document.querySelector('.oscilloscope1').innerHTML=("<h2 style=\"color:red;\">Error - See console log.</h2>");console.log(e);};
   if (navigator.getUserMedia) 
   {
-    navigator.getUserMedia({audio: true}, function(stream) {
+      window.recumedia=navigator.getUserMedia({audio: true}, function(stream) {
       window.astream = stream;
       window.rec = new Recorder(stream);
     }, errorCallback);
+    
   } else {
     document.querySelector('.oscilloscope1').innerHTML=("<h2 style=\"color:red;\">Error - please run in Chrome 35.0.1916.153 or newer.</h2>");
   }
