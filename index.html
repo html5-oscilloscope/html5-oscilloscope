@@ -36,7 +36,7 @@ function init()
   var errorCallback = function(e){document.querySelector('.oscilloscope1').innerHTML=("<h2 style=\"color:red;\">Error - See console log.</h2>");console.log(e);};
   if (navigator.getUserMedia) 
   {
-    navigator.getUserMedia({audio: true, video: true}, function(stream) {
+    navigator.getUserMedia({audio: true}, function(stream) {
       window.rec = new Recorder(stream);
     }, errorCallback);
   } else {
