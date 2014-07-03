@@ -23,7 +23,8 @@
 <script src="cssplot.js"></script>
 <script src="recorder.js"></script>
 <script>
-window.rec = null;
+window.recerror=function(){alert("Error: window.rec is not defined.");}
+window.rec = {"getBuffer":window.recerror,"start":window.recerror,"start":window.recerror,"clear":window.recerror};
 window.recbuffer=null;
 function init()
 {
@@ -32,14 +33,14 @@ function init()
                           navigator.mozGetUserMedia ||
                           navigator.msGetUserMedia;
 
-  var errorCallback = function(e){document.querySelector('.oscilloscope1').html("<h2 style=\"color:red;\">Error - See console log.</h2>");console.log(e);};
+  var errorCallback = function(e){document.querySelector('.oscilloscope1').innerHTML=("<h2 style=\"color:red;\">Error - See console log.</h2>");console.log(e);};
   if (navigator.getUserMedia) 
   {
     navigator.getUserMedia({audio: true, video: true}, function(stream) {
       window.rec = new Recorder(stream);
     }, errorCallback);
   } else {
-    document.querySelector('.oscilloscope1').html("<h2 style=\"color:red;\">Error - please run in Chrome 35.0.1916.153 or newer.</h2>");
+    document.querySelector('.oscilloscope1').innerHTML=("<h2 style=\"color:red;\">Error - please run in Chrome 35.0.1916.153 or newer.</h2>");
   }
 }
 
