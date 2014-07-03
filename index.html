@@ -11,6 +11,10 @@
     #recordingslist audio { display: block; margin-bottom: 10px; }
   </style>
   <script src="underscore-min.js"></script>
+  <script>
+  	function meanEach(a){var rtn = []; for(var i=0;i<a.length;i++){var ca = a[i]; var cs = 0; for(var j=0;j<ca.length;j++){ cs+=ca[j]; } cs/=ca.length; rtn.push(cs); } return rtn; }
+	
+  </script>
 </head>
 <body>
 
