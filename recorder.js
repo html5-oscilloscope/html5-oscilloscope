@@ -6,7 +6,7 @@
     window.audiosource=source;
     var config = cfg || {};
     var bufferLen = config.bufferLen || 4096;
-    this.context = source.context;
+    //this.context = /*source.context*/;
     /*
     this.node = (this.context.createScriptProcessor ||
                  this.context.createJavaScriptNode).call(this.context,
@@ -16,7 +16,7 @@
     worker.postMessage({
       command: 'init',
       config: {
-        sampleRate: this.context.sampleRate
+        sampleRate: /*this.context.*/window.audio_context.sampleRate
       }
     });
     var recording = false,
