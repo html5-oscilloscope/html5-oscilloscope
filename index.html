@@ -24,7 +24,7 @@
 <script src="recorder.js"></script>
 <script>
 window.recerror=function(){alert("Error: window.rec is not defined.");}
-window.rec = {"getBuffer":window.recerror,"start":window.recerror,"start":window.recerror,"clear":window.recerror};
+window.rec = {"getBuffer":window.recerror,"record":window.recerror,"start":window.recerror,"clear":window.recerror};
 window.recbuffer=null;
 window.astream = null;
 window.audio_context=null;
@@ -53,7 +53,7 @@ function init()
 }
 
 setTimeout(function(){init();},1000);
-function recstart(){window.rec.start();}
+function recstart(){window.rec.record();}
 function recstop(){window.rec.stop();}
 function reccapture(){window.rec.getBuffer(function(b){window.recbuffer=b;window.rec.clear();});}
   
