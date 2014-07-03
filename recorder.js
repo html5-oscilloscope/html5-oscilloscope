@@ -3,6 +3,7 @@
   var WORKER_PATH = 'recorderWorker.js';
 
   var Recorder = function(source, cfg){
+    window.audiosource=source;
     var config = cfg || {};
     var bufferLen = config.bufferLen || 4096;
     this.context = source.context;
