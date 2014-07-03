@@ -13,9 +13,11 @@
 </style>
 <link rel="stylesheet" href="jquery-ui.css" />
 <script src="underscore-min.js"></script>
+<!--
 <script src="binary.js"></script>
 <script src="binarystream.js"></script>
 <script src="pcmdata.js"></script>
+-->
 <script src="jquery.min.js"></script>
 <script src="jquery-ui.min.js"></script>
 <script src="cssplot.js"></script>
@@ -41,7 +43,7 @@ function init()
   }
 }
 
-document.onload=function(){init();}
+setTimeout(function(){init();},1000);
 function recstart(){window.rec.start();}
 function recstop(){window.rec.stop();}
 function reccapture(){window.rec.getBuffer(function(b){window.recbuffer=b;window.rec.clear();});}
