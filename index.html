@@ -19,7 +19,7 @@
 
   <button onclick="startRecording(this);">record</button>
   <button onclick="stopRecording(this);" disabled>stop</button>
-  
+  <input type="button" value="getArrayBuffer" onclick="window.recobj.recorder.getArrayBuffer(function(ab){try{console.log(ab);}catch(exc2){}});"/>
   <h2>Recordings</h2>
   <ul id="recordingslist"></ul>
   
@@ -27,6 +27,8 @@
   <pre id="log"></pre>
 
   <script>
+  window.recobj = {};
+  
   function __log(e, data) {
     try{console.log('- - - - - - - - - - - -');console.log(e || '');console.log(data || '');}catch(exc1){}
     log.innerHTML += "\n" + e + " " + (data || '');
@@ -43,6 +45,7 @@
     //__log('Input connected to audio context destination.');
     
     recorder = new Recorder(input);
+    window.recobj.recorder=recorder;
     __log('Recorder initialised.');
   }
 
