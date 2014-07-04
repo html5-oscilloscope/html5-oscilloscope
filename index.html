@@ -14,69 +14,23 @@
   <script>
   	//function meanEach(a){var rtn = []; for(var i=0;i<a.length;i++){var ca = a[i]; var cs = 0; for(var j=0;j<ca.length;j++){ cs+=ca[j]; } cs/=ca.length; rtn.push(cs); } return rtn; }
 	window.recobj = {"larray":[],"rarray":[],"marray":[],"abp_intervalid":false,"abc_intervalid":false};
-	
-	function afterinit()
+	window.recobj.running=false;
+	function getdata()
 	{
-		if(true || window.recobj.abp_intervalid===false)
+		if(window.recobj.running && window.recorder)
 		{
-			window.recobj.abp_intervalid = setInterval(
-				function()
-				{
-					window.recobj.recorder.getBuffer(function(ab){
-					var l = ab[0];
-					var r = ab[1];
-					window.recobj.recorder.clear();
-					var m = [];
-					for(var i=0;i<l.length && m<r.length; i++)
-					{
-						m.push((l+r)/2.0);
-					}
-					window.recobj.larray = window.recobj.larray.concat(l);
-					window.recobj.larray = window.recobj.rarray.concat(r);
-					window.recobj.larray = window.recobj.marray.concat(m);
-					});
-				
-				}
-				,100);
-		
-		}
-		
-		if(true || window.recobj.abc_intervalid===false)
-		{
-			window.recobj.abc_intervalid = setInterval(
-				function()
-				{
-					if(window.recobj.larray.length>1024)
-					{
-					if(window.recobj.rarray.length>1024)
-					{
-					if(window.recobj.marray.length>1024)
-					{
-						var tmpal1 = window.recobj.larray.splice(1024);
-						var tmpal2 = window.recobj.larray;
-						window.recobj.larray = tmpal1;
-						var tmpar1 = window.recobj.rarray.splice(1024);
-						var tmpar2 = window.recobj.rarray;
-						window.recobj.rarray = tmpar1;
-						var tmpam1 = window.recobj.marray.splice(1024);
-						var tmpam2 = window.recobj.marray;
-						window.recobj.marray = tmpam1;
-						console.log((new Date()).getTime());
-					}
-						
-					}
-						
-					}
-				}
-				,20);
-		
+			window.recorder.getBuffer(function(b){
+				document.getElementById('data1').value=JSON.stringify(b);
+				window.recorder.clear();
+			});
 		}
 	}
+	window.recobj.int1=setInterval(getdata,1000);
   </script>
 </head>
 <body>
 
-
+  <div><input id="data1" style="width:100%;margin:15px 5%;"/></div>
   <p>Make sure you are using Google Chrome 35.0.1916.153 or newer.</p>
   <p>Also before you enable microphone input either plug in headphones or turn the volume down if you want to avoid ear splitting feedback!</p>
 
@@ -122,9 +76,11 @@
     __log('Recording...');
     //setTimeout(function(){afterinit();},500);
     __log('ai init');
+    window.recobj.running=true;
   }
 
   function stopRecording(button) {
+    window.recobj.running=false;
     recorder && recorder.stop();
     button.disabled = true;
     button.previousElementSibling.disabled = false;
@@ -252,4 +208,63 @@ function reccapture(){window.rec.getBuffer(function(b){window.recbuffer=b;window
 
 </body>
 </html>
+-->
+<!--
+	function afterinit()
+	{
+		if(true || window.recobj.abp_intervalid===false)
+		{
+			window.recobj.abp_intervalid = setInterval(
+				function()
+				{
+					window.recobj.recorder.getBuffer(function(ab){
+					var l = ab[0];
+					var r = ab[1];
+					window.recobj.recorder.clear();
+					var m = [];
+					for(var i=0;i<l.length && m<r.length; i++)
+					{
+						m.push((l+r)/2.0);
+					}
+					window.recobj.larray = window.recobj.larray.concat(l);
+					window.recobj.larray = window.recobj.rarray.concat(r);
+					window.recobj.larray = window.recobj.marray.concat(m);
+					});
+				
+				}
+				,100);
+		
+		}
+		
+		if(true || window.recobj.abc_intervalid===false)
+		{
+			window.recobj.abc_intervalid = setInterval(
+				function()
+				{
+					if(window.recobj.larray.length>1024)
+					{
+					if(window.recobj.rarray.length>1024)
+					{
+					if(window.recobj.marray.length>1024)
+					{
+						var tmpal1 = window.recobj.larray.splice(1024);
+						var tmpal2 = window.recobj.larray;
+						window.recobj.larray = tmpal1;
+						var tmpar1 = window.recobj.rarray.splice(1024);
+						var tmpar2 = window.recobj.rarray;
+						window.recobj.rarray = tmpar1;
+						var tmpam1 = window.recobj.marray.splice(1024);
+						var tmpam2 = window.recobj.marray;
+						window.recobj.marray = tmpam1;
+						console.log((new Date()).getTime());
+					}
+						
+					}
+						
+					}
+				}
+				,20);
+		
+		}
+	}
 -->
