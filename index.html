@@ -17,7 +17,7 @@
 	
 	function afterinit()
 	{
-		if(window.recobj.abp_intervalid===false)
+		if(true || window.recobj.abp_intervalid===false)
 		{
 			window.recobj.abp_intervalid = setInterval(
 				function()
@@ -41,7 +41,7 @@
 		
 		}
 		
-		if(window.recobj.abc_intervalid===false)
+		if(true || window.recobj.abc_intervalid===false)
 		{
 			window.recobj.abc_intervalid = setInterval(
 				function()
@@ -113,8 +113,6 @@
     recorder = new Recorder(input);
     window.recobj.recorder=recorder;
     __log('Recorder initialised.');
-    afterinit();
-    __log('Called "afterinit()"...');
   }
 
   function startRecording(button) {
@@ -123,6 +121,7 @@
     button.nextElementSibling.disabled = false;
     __log('Recording...');
     setTimeout(function(){afterinit();},500);
+    __log('ai init');
   }
 
   function stopRecording(button) {
