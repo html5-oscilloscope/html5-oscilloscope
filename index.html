@@ -82,7 +82,7 @@
 
   <button onclick="startRecording(this);">record</button>
   <button onclick="stopRecording(this);" disabled>stop</button>
-  <input type="button" value="get buffer" onclick="window.recobj.recorder.getBuffer(function(ab){try{console.log(ab);}catch(exc2){}});"/>
+  <input type="button" value="get buffer" onclick="window.recobj.recorder.getBuffer(function(ab){try{__log(JSON.stringify(ab));}catch(exc2){}});"/>
   <h2>Recordings</h2>
   <ul id="recordingslist"></ul>
   
@@ -120,7 +120,7 @@
     button.disabled = true;
     button.nextElementSibling.disabled = false;
     __log('Recording...');
-    setTimeout(function(){afterinit();},500);
+    //setTimeout(function(){afterinit();},500);
     __log('ai init');
   }
 
