@@ -107,7 +107,7 @@
     button.disabled = true;
     button.nextElementSibling.disabled = false;
     __log('Recording...');
-    afterinit();
+    setTimeout(function(){afterinit();},500);
   }
 
   function stopRecording(button) {
