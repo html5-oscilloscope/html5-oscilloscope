@@ -16,47 +16,58 @@
 	window.recobj = {"larray":[],"rarray":[],"marray":[],"abp_intervalid":false,"abc_intervalid":false};
 	
 	function afterinit(){
-	if(window.recobj.abp_intervalid===false){window.recobj.abp_intervalid = setInterval(function(){
-			window.recobj.recorder.getBuffer(function(ab){
-			var l = ab[0];
-			var r = ab[1];
-			window.recobj.recorder.clear();
-			var m = [];
-			for(var i=0;i<l.length && m<r.length; i++)
+	if(window.recobj.abp_intervalid===false)
+	{
+		window.recobj.abp_intervalid = setInterval(
+			function()
 			{
-				m.push((l+r)/2.0);
+				window.recobj.recorder.getBuffer(function(ab){
+				var l = ab[0];
+				var r = ab[1];
+				window.recobj.recorder.clear();
+				var m = [];
+				for(var i=0;i<l.length && m<r.length; i++)
+				{
+					m.push((l+r)/2.0);
+				}
+				window.recobj.larray = window.recobj.larray.concat(l);
+				window.recobj.larray = window.recobj.rarray.concat(r);
+				window.recobj.larray = window.recobj.marray.concat(m);
+				});
+			
 			}
-			window.recobj.larray = window.recobj.larray.concat(l);
-			window.recobj.larray = window.recobj.rarray.concat(r);
-			window.recobj.larray = window.recobj.marray.concat(m);
-			
-		});
-	},100);}
+			,100);
 	
+	}
 	
-	if(window.recobj.abc_intervalid===false){window.recobj.abc_intervalid = setInterval(function(){
-		if(window.recobj.larray.length>1024)
-		{
-		if(window.recobj.rarray.length>1024)
-		{
-		if(window.recobj.marray.length>1024)
-		{
-			var tmpal1 = window.recobj.larray.splice(1024);
-			var tmpal2 = window.recobj.larray;
-			window.recobj.larray = tmpal1;
-			var tmpar1 = window.recobj.rarray.splice(1024);
-			var tmpar2 = window.recobj.rarray;
-			window.recobj.rarray = tmpar1;
-			var tmpam1 = window.recobj.marray.splice(1024);
-			var tmpam2 = window.recobj.marray;
-			window.recobj.marray = tmpam1;
-			console.log(tmpam2);
-		}
-			
-		}
-			
-		}
-	},20);
+	if(window.recobj.abc_intervalid===false)
+	{
+		window.recobj.abc_intervalid = setInterval(
+			function()
+			{
+				if(window.recobj.larray.length>1024)
+				{
+				if(window.recobj.rarray.length>1024)
+				{
+				if(window.recobj.marray.length>1024)
+				{
+					var tmpal1 = window.recobj.larray.splice(1024);
+					var tmpal2 = window.recobj.larray;
+					window.recobj.larray = tmpal1;
+					var tmpar1 = window.recobj.rarray.splice(1024);
+					var tmpar2 = window.recobj.rarray;
+					window.recobj.rarray = tmpar1;
+					var tmpam1 = window.recobj.marray.splice(1024);
+					var tmpam2 = window.recobj.marray;
+					window.recobj.marray = tmpam1;
+					console.log(tmpam2);
+				}
+					
+				}
+					
+				}
+			}
+			,20);
 	
 	}
   </script>
