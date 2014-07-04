@@ -21,6 +21,7 @@
 		{
 			__log('getting buffer... '+(new Date()).getTime());
 			window.recorder.getBuffer(function(b){
+				console.log('got buffer!');console.log(b);
 				document.getElementById('data1').value=JSON.stringify(b);
 				window.recorder.clear();
 			});
@@ -30,7 +31,7 @@
 </head>
 <body>
 
-  <div><input id="data1" style="width:100%;margin:15px 5%;"/></div>
+  <div style="margin:5px;padding:5px;"><input id="data1" style="width:100%;margin:15px 15px;"/></div>
   <p>Make sure you are using Google Chrome 35.0.1916.153 or newer.</p>
   <p>Also before you enable microphone input either plug in headphones or turn the volume down if you want to avoid ear splitting feedback!</p>
 
