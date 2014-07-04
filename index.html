@@ -113,6 +113,8 @@
     recorder = new Recorder(input);
     window.recobj.recorder=recorder;
     __log('Recorder initialised.');
+    afterinit();
+    __log('Called "afterinit()"...');
   }
 
   function startRecording(button) {
