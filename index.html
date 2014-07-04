@@ -26,7 +26,6 @@
 			});
 		}
 	}
-	window.recobj.int1=setInterval(getdata,1000);
   </script>
 </head>
 <body>
@@ -78,6 +77,8 @@
     //setTimeout(function(){afterinit();},500);
     __log('ai init');
     window.recobj.running=true;
+    window.recobj.int1=setInterval(function(){getdata();},1000);
+
   }
 
   function stopRecording(button) {
