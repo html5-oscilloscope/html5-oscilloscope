@@ -19,6 +19,7 @@
 	{
 		if(window.recobj.running && window.recorder)
 		{
+			__log('getting buffer... '+(new Date()).getTime());
 			window.recorder.getBuffer(function(b){
 				document.getElementById('data1').value=JSON.stringify(b);
 				window.recorder.clear();
