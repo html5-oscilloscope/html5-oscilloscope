@@ -23,10 +23,12 @@
   		{
   			document.getElementById('cbw').style.backgroundColor='#cfc;';
   			document.getElementById('info').style.backgroundColor='#cfc';
+  			document.getElementById('inst').innerHTML="(Check the box to pause)";
   		}
   		else{
   			document.getElementById('cbw').style.backgroundColor='#fcc';
   			document.getElementById('info').style.backgroundColor='#fcc';
+  			document.getElementById('inst').innerHTML="(Uncheck the box to pause resume)";
   		}
   		document.getElementById('info').innerHTML=t;
   },5000);
@@ -80,7 +82,7 @@
 </head>
 <body>
 <div class="info" id="info"></div>
-<div id="cbw"><input type="checkbox" id="running" checked="true"/> Paused</div>
+<div id="cbw"><input type="checkbox" id="running" checked="true"/> Paused <span id="inst"></span></div>
 <div id="plot2"></div>
 <style>
 #plot2{height:512px;width:1024px;background:#d5e5f5;margin:25px;}
