@@ -17,12 +17,14 @@
   
   setInterval(function(){
   		var cb = document.getElementById('running');
+  		var cbw = document.getElementById('cbw');
+  		
   		if(cb.checked)
   		{
-  			cb.style.border='5px solid red';
+  			cbw.style.background='#cfc;';
   		}
   		else{
-  			cb.style.border='5px solid green';
+  			cb.style.border='#fcc';
   			//  			getdata();
 //  			uplot(b2,256);
 
@@ -78,7 +80,7 @@
   </script>
 </head>
 <body>
-<div><input type="checkbox" id="running" checked="true"/> Paused</div>
+<div id="cbw" style="background:#fcc"><input type="checkbox" id="running" checked="true"/> Paused</div>
 <div id="plot2"></div>
 <style>
 #plot2{height:512px;width:1024px;background:#d5e5f5;margin:25px;}
