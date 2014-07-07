@@ -12,6 +12,13 @@
   </style>
   <script src="underscore-min.js"></script>
   <script>
+  function getLast1024(b){var rtn = [[],[],[]];for(i=0;i<b[0].length && i<b[1].length;i++){
+	rtn[0].push(b[0][i]);
+	rtn[1].push(b[1][i]);
+	rtn[2].push(b[0][i]/2+b[1][i]/2); 
+	if(rtn[0].length>1024){rtn[0].shift();}if(rtn[1].length>1024){rtn[1].shift();}if(rtn[2].length>1024){rtn[2].shift();} } 
+	return rtn;}
+ function scaleArray(a,n){var rtn = [];for(var i=0;i<a.length;i++){rtn.push(n*a[i]);}return rtn;}
   	//function meanEach(a){var rtn = []; for(var i=0;i<a.length;i++){var ca = a[i]; var cs = 0; for(var j=0;j<ca.length;j++){ cs+=ca[j]; } cs/=ca.length; rtn.push(cs); } return rtn; }
 	window.recobj = {"larray":[],"rarray":[],"marray":[],"abp_intervalid":false,"abc_intervalid":false};
 	window.recobj.running=false;
