@@ -19,6 +19,7 @@
 	if(rtn[0].length>1024){rtn[0].shift();}if(rtn[1].length>1024){rtn[1].shift();}if(rtn[2].length>1024){rtn[2].shift();} } 
 	return rtn;}
  function roundArray(a){var rtn = [];for(var i = 0;i<a.length;i++){rtn.push(Math.round(a[i]));}return rtn;}
+ var cssp = null;
  function scaleArray(a,n,round){var rtn = [];for(var i=0;i<a.length;i++){if(!round){rtn.push(n*a[i]);}else{rtn.push(Math.round(n*a[i]));}}return rtn;}
   	//function meanEach(a){var rtn = []; for(var i=0;i<a.length;i++){var ca = a[i]; var cs = 0; for(var j=0;j<ca.length;j++){ cs+=ca[j]; } cs/=ca.length; rtn.push(cs); } return rtn; }
 	window.recobj = {"larray":[],"rarray":[],"marray":[],"abp_intervalid":false,"abc_intervalid":false};
@@ -34,11 +35,16 @@
 				b1[1]=scaleArray(b1[1],256,true);
 				b1[2]=scaleArray(b1[2],256,true);
 				var b2=b1[2];
-				console.log('got buffer!');console.log(b2);
-				document.getElementById('data1').innerHTML=JSON.stringify(b2);
+				//console.log('got buffer!');console.log(b2);
 				window.recorderresult=b;
 				window.b2=b2;
 				window.recorder.clear();
+				document.getElementById('data1').innerHTML=JSON.stringify(b2);
+				var tdiv = document.getElementById('plot');
+				
+				cssp.updatePlot(a1,0,true,'silver');
+
+
 			});
 		}
 	}
@@ -151,7 +157,11 @@
 
   <script src="recorder.js"></script>
   <div style="border:1px solid red;margin:20px;" id="plot"></div>
-  
+  <script>
+        var tdiv = document.getElementById('plot');
+  	cssp = createCssPlot(tdiv ,1024,512);
+  	
+  </script>
 </body>
 </html>
 <!--
