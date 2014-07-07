@@ -16,16 +16,14 @@
   window.b2=false;
   
   setInterval(function(){
-  	if(window.b2)
-  	{
   		var cb = document.getElementById('running');
-  		if(cb.checked)
+  		if(!cb.checked)
   		{
+  			getdata();
   			uplot(b2,256);
   		}
-  	}
   	
-  },1000);
+  },5000);
 
   var tdiv=null;
   var cssp=null;
