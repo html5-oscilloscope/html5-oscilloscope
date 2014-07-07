@@ -59,7 +59,31 @@
   </script>
 </head>
 <body>
-
+<div id="plot2"></div>
+<style>
+#plot2{height:512px;width:1024px;}
+#plot2>div{
+    position:relative;
+    display:inline-block;
+    margin:0px;
+    border:0px;
+    width:1px;
+    border-bottom:5px solid blue;
+    border-radius:5px;
+    background:silver;
+    height:100px;
+}
+</style>
+<style id="plot2s"></style>
+<script>
+	setTimeout(function(){
+    var p = document.getElementById('plot');
+for(var i=0;i<1024;i++)
+{
+    p.appendChild(document.createElement('div'));
+}
+},100);
+</script>
   <div style="margin:5px;padding:5px;">
   	<textarea id="data1" style="display:block;height:100px;margin:15px 15px;"></textarea>
   </div>
