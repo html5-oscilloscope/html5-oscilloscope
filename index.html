@@ -19,16 +19,16 @@
   setInterval(function(){
   		var cb = document.getElementById('running');
   		var cbw = document.getElementById('cbw');
-  		
+  		var t = ' '+new Date();
+  		t=cb.checked+t;
   		if(cb.checked)
   		{
   			cbw.style.backgroundColor='#cfc;';
   		}
   		else{
   			cbw.style.backgroundColor='#fcc';
-
   		}
-  	
+  		document.getElementById('info').innerHTML=t;
   },5000);
 
   var tdiv=null;
