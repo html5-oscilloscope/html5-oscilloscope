@@ -28,9 +28,15 @@
 		{
 			__log('getting buffer... '+(new Date()).getTime());
 			window.recorder.getBuffer(function(b){
-				console.log('got buffer!');console.log(b);
-				document.getElementById('data1').innerHTML=JSON.stringify(b);
+				var b1 = getLast1024(b);
+				b1[0]=scaleArray(b1[0],256);
+				b1[1]=scaleArray(b1[1],256);
+				b1[2]=scaleArray(b1[2],256);
+				var b2=b1[2];
+				console.log('got buffer!');console.log(b2);
+				document.getElementById('data1').innerHTML=JSON.stringify(b2);
 				window.recorderresult=b;
+				window.b2=b2;
 				window.recorder.clear();
 			});
 		}
