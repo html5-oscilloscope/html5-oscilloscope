@@ -37,7 +37,7 @@
 		for(var i=0;i<1024;i++){tdiv.appendChild(document.createElement('div'));}
 		
 	},1000);
-	function uplot(a){var p2a = document.getElementById('plot2').getElementsByTagName('div');for(var i=0;i<p2a.length && i<a.length;i++){p2a[i].style.top=(256-a[i])+'px';}}
+	function uplot(a,offset){var p2a = document.getElementById('plot2').getElementsByTagName('div');for(var i=0;i<p2a.length && i<a.length;i++){p2a[i].style.top=(offset?(a[i]-offset):a[i])+'px';}}
 	function getdata()
 	{
 		
@@ -66,16 +66,20 @@
 <body>
 <div id="plot2"></div>
 <style>
-#plot2{height:51.2px;width:1024px;border:5px solid red;margin:25px;}
+#plot2{height:512px;width:1024px;background:#d5e5f5;margin:25px;}
 #plot2>div{
+    transition: top linear 50ms;
+    -webkit-transition: top linear 50ms;
+    -moz-transition: top linear 50ms;
+    -ms-transition: top linear 50ms;
+    -o-transition: top linear 50ms;
+    
     position:relative;
     display:inline-block;
     margin:0px;
     border:0px;
     width:1px;
-    border-bottom:5px solid blue;
-    border-radius:5px;
-    background:silver;
+    border-bottom:1px solid blue;
     height:100px;
 }
 </style>
