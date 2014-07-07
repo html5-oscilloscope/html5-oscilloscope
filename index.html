@@ -17,10 +17,15 @@
   
   setInterval(function(){
   		var cb = document.getElementById('running');
-  		if(!cb.checked)
+  		if(cb.checked)
   		{
-  			getdata();
-  			uplot(b2,256);
+  			cb.style.color='red';
+  		}
+  		else{
+  			cb.style.color=green;
+  			//  			getdata();
+//  			uplot(b2,256);
+
   		}
   	
   },5000);
