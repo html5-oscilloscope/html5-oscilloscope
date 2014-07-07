@@ -31,11 +31,15 @@
   	//function meanEach(a){var rtn = []; for(var i=0;i<a.length;i++){var ca = a[i]; var cs = 0; for(var j=0;j<ca.length;j++){ cs+=ca[j]; } cs/=ca.length; rtn.push(cs); } return rtn; }
 	window.recobj = {"larray":[],"rarray":[],"marray":[],"abp_intervalid":false,"abc_intervalid":false};
 	window.recobj.running=false;
+	setTimeout(function(){
+		
+		var tdiv=document.getElementById('plot');
+		for(var i=0;i<1024;i++){tdiv.appendChild(document.createElement('div'));}
+		
+	},1000);
 	function getdata()
 	{
-		if(tdiv==null){tdiv=document.getElementById('plot');}
-		if(cssp==null){       cssp = createCssPlot(tdiv ,1024,512); }
- 
+		
 		if(window.recobj.running && window.recorder)
 		{
 			__log('getting buffer... '+(new Date()).getTime());
