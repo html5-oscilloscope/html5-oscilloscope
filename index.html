@@ -33,7 +33,7 @@
 	window.recobj.running=false;
 	setTimeout(function(){
 		
-		var tdiv=document.getElementById('plot');
+		var tdiv=document.getElementById('plot2');
 		for(var i=0;i<1024;i++){tdiv.appendChild(document.createElement('div'));}
 		
 	},1000);
@@ -54,9 +54,6 @@
 				window.b2=b2;
 				window.recorder.clear();
 				document.getElementById('data1').innerHTML=JSON.stringify(b2);
-				var tdiv = document.getElementById('plot');
-				
-				cssp.updatePlot(b2,256,true,'silver');
 				//window.plotd(b2);
 
 			});
