@@ -34,7 +34,9 @@
   		document.getElementById('info').innerHTML=t;
   		if(process===true)
   		{
+  			document.getElementById('info').innerHTML+="<br/>"+"Calling getData...";
   			getdata();
+                        document.getElementById('info').innerHTML+="   ...done.<br/>\n";
   			//uplot();
   		}
   },5000);
@@ -88,7 +90,7 @@
   </script>
 </head>
 <body>
-<div class="info" id="info"></div>
+<div class="info" id="info">&nbsp;</div>
 <div id="cbw"><input type="checkbox" id="running" checked="true"/> Paused <span id="inst"></span></div>
 <div id="plot2"></div>
 <style>
