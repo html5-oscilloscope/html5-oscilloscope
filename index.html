@@ -24,11 +24,12 @@
   		{
   			document.getElementById('info').style.backgroundColor='#fcc';
   			document.getElementById('inst').innerHTML="(Uncheck the box to pause resume)";
-  			process=true;
+  			
   		}
   		else{
   			document.getElementById('info').style.backgroundColor='#cfc';
   			document.getElementById('inst').innerHTML="(Check the box to pause)";
+  			process=true;
   		}
   		document.getElementById('info').innerHTML=t;
   		if(process===true)
