@@ -51,7 +51,7 @@
 				var tdiv = document.getElementById('plot');
 				
 				cssp.updatePlot(b2,256,true,'silver');
-
+				plotd(b2);
 
 			});
 		}
@@ -74,7 +74,7 @@
     height:100px;
 }
 </style>
-<style id="plot2s"></style>
+<div id="plot2s"></div>
 <script>
 	setTimeout(function(){
     var p = document.getElementById('plot2');
@@ -83,6 +83,13 @@ for(var i=0;i<1024;i++)
     p.appendChild(document.createElement('div'));
 }
 },100);
+
+plotd(d)
+{
+    var css = '';
+    for(vat i=0;i<d.length;i++){css+='\n#plot>div:nth-of-type('+(i+1)+'){top:'+d[i]+'px;}\n';
+    document.getElementById('plot2s').innerHTML="<style>"+css+"</style>";
+}
 </script>
   <div style="margin:5px;padding:5px;">
   	<textarea id="data1" style="display:block;height:100px;margin:15px 15px;"></textarea>
