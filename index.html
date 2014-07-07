@@ -9,6 +9,7 @@
   <style type='text/css'>
     ul { list-style: none; }
     #recordingslist audio { display: block; margin-bottom: 10px; }
+    #info{margin:15px 25px; padding: 10px 25px;background-color:#ccf;font-family:arial;}
   </style>
   <script src="cssplot.js"></script>
   <script src="underscore-min.js"></script>
@@ -25,8 +26,6 @@
   		}
   		else{
   			cbw.style.backgroundColor='#fcc';
-  			//  			getdata();
-//  			uplot(b2,256);
 
   		}
   	
@@ -80,6 +79,7 @@
   </script>
 </head>
 <body>
+<div class="info" id="info"></div>
 <div id="cbw" style="background-color:#fcc;"><input type="checkbox" id="running" checked="true"/> Paused</div>
 <div id="plot2"></div>
 <style>
