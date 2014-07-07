@@ -37,7 +37,7 @@
 		for(var i=0;i<1024;i++){tdiv.appendChild(document.createElement('div'));}
 		
 	},1000);
-	function uplot(a){var p2a = document.getElementById('plot2').getElementsByTagName('div');for(var i=0;i<p2a.length && i<a.length;i++){p2a[i].style.top=a[i]+'px';}}
+	function uplot(a){var p2a = document.getElementById('plot2').getElementsByTagName('div');for(var i=0;i<p2a.length && i<a.length;i++){p2a[i].style.top=(256-a[i])+'px';}}
 	function getdata()
 	{
 		
