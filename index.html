@@ -18,19 +18,24 @@
   
   setInterval(function(){
   		var t = ' '+new Date();
+  		var process=false;
   		t=document.getElementById('running').checked+t;
   		if(document.getElementById('running').checked)
   		{
-  			document.getElementById('cbw').style.backgroundColor='#cfc;';
-  			document.getElementById('info').style.backgroundColor='#cfc';
+  			document.getElementById('info').style.backgroundColor='#fcc';
   			document.getElementById('inst').innerHTML="(Uncheck the box to pause resume)";
+  			process=true;
   		}
   		else{
-  			document.getElementById('cbw').style.backgroundColor='#fcc';
-  			document.getElementById('info').style.backgroundColor='#fcc';
+  			document.getElementById('info').style.backgroundColor='#cfc';
   			document.getElementById('inst').innerHTML="(Check the box to pause)";
   		}
   		document.getElementById('info').innerHTML=t;
+  		if(process===true)
+  		{
+  			getdata();
+  			//uplot();
+  		}
   },5000);
 
   var tdiv=null;
@@ -74,6 +79,7 @@
 				window.recorder.clear();
 				//document.getElementById('data1').innerHTML=JSON.stringify(b2);
 				//window.plotd(b2);
+				uplot(b2,256);
 
 			});
 		}
