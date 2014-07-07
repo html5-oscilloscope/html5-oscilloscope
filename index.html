@@ -13,7 +13,19 @@
   <script src="cssplot.js"></script>
   <script src="underscore-min.js"></script>
   <script>
-
+  window.b2=false;
+  
+  setInterval(function(){
+  	if(window.b2)
+  	{
+  		var cb = document.getElementById('running');
+  		if(cb.checked)
+  		{
+  			uplot(b2,256);
+  		}
+  	}
+  	
+  },1000);
 
   var tdiv=null;
   var cssp=null;
@@ -52,7 +64,6 @@
 				var b2=b1[2];
 				//console.log('got buffer!');console.log(b2);
 				window.recorderresult=b;
-				uplot(b2);
 				window.b2=b2;
 				window.recorder.clear();
 				//document.getElementById('data1').innerHTML=JSON.stringify(b2);
@@ -64,6 +75,7 @@
   </script>
 </head>
 <body>
+<div><input type="checkbox" id="running" checked="true"/> Paused</div>
 <div id="plot2"></div>
 <style>
 #plot2{height:512px;width:1024px;background:#d5e5f5;margin:25px;}
