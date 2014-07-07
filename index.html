@@ -23,6 +23,7 @@
 			window.recorder.getBuffer(function(b){
 				console.log('got buffer!');console.log(b);
 				document.getElementById('data1').innerHTML=JSON.stringify(b);
+				window.recorderresult=b;
 				window.recorder.clear();
 			});
 		}
@@ -135,6 +136,8 @@
   </script>
 
   <script src="recorder.js"></script>
+  <div style="border:1px solid red;margin:20px;" id="plot"></div>
+  
 </body>
 </html>
 <!--
