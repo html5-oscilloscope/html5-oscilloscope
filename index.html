@@ -17,16 +17,16 @@
   window.b2=false;
   
   setInterval(function(){
-  		var cb = document.getElementById('running');
-  		var cbw = document.getElementById('cbw');
   		var t = ' '+new Date();
-  		t=cb.checked+t;
-  		if(cb.checked)
+  		t=document.getElementById('running').checked+t;
+  		if(document.getElementById('running').checked)
   		{
-  			cbw.style.backgroundColor='#cfc;';
+  			document.getElementById('cbw').style.backgroundColor='#cfc;';
+  			document.getElementById('info').style.backgroundColor='#cfc';
   		}
   		else{
-  			cbw.style.backgroundColor='#fcc';
+  			document.getElementById('cbw').style.backgroundColor='#fcc';
+  			document.getElementById('info').style.backgroundColor='#fcc';
   		}
   		document.getElementById('info').innerHTML=t;
   },5000);
