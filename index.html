@@ -13,6 +13,13 @@
   <script src="cssplot.js"></script>
   <script src="underscore-min.js"></script>
   <script>
+  function plotd(d)
+{
+    var css = '';
+    for(var i=0;i<d.length;i++){css+='\n#plot>div:nth-of-type('+(i+1)+'){top:'+d[i]+'px;}\n';
+    document.getElementById('plot2s').innerHTML="<style>"+css+"</style>";
+}
+
   var tdiv=null;
   var cssp=null;
   function getLast1024(b){
@@ -76,19 +83,13 @@
 </style>
 <div id="plot2s"></div>
 <script>
-function plotd(d)
-{
-    var css = '';
-    for(var i=0;i<d.length;i++){css+='\n#plot>div:nth-of-type('+(i+1)+'){top:'+d[i]+'px;}\n';
-    document.getElementById('plot2s').innerHTML="<style>"+css+"</style>";
-}
-	setTimeout(function(){
+setTimeout(function(){
     var p = document.getElementById('plot2');
-for(var i=0;i<1024;i++)
-{
-    p.appendChild(document.createElement('div'));
-}
-},100);
+	for(var i=0;i<1024;i++)
+	{
+	    p.appendChild(document.createElement('div'));
+	}
+	},100);
 
 
 </script>
