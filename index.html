@@ -69,7 +69,7 @@
 		
 		if(window.recobj.running && window.recorder)
 		{
-			__log('getting buffer... '+(new Date()).getTime());
+		//	__log('getting buffer... '+(new Date()).getTime());
 			window.recorder.getBuffer(function(b){
 				var b1 = getLast1024(b);
 				b1[0]=scaleArray(b1[0],256,true);
