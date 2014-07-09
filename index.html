@@ -19,34 +19,37 @@
   window.b2=false;
   
   setInterval(function(){
-  		if(true)//window.isbusy===false)
+  		if(window.isbusy==false)
   		{
-	  			
 	  		window.isbusy=true;
-	  		var t = ' '+new Date();
-	  		var process=false;
-	  		t=document.getElementById('running').checked+t;
-	  		if(document.getElementById('running').checked)
+	  		if(window.isbusy2==false)	
 	  		{
-	  			document.getElementById('info').style.backgroundColor='#fcc';
-	  			document.getElementById('inst').innerHTML="(Uncheck the box to pause resume)";
-	  			
+				var t = ' '+new Date();
+		  		var process=false;
+		  		t=document.getElementById('running').checked+t;
+		  		if(document.getElementById('running').checked)
+		  		{
+		  			document.getElementById('info').style.backgroundColor='#fcc';
+		  			document.getElementById('inst').innerHTML="(Uncheck the box to pause resume)";
+		  			
+		  		}
+		  		else{
+		  			document.getElementById('info').style.backgroundColor='#cfc';
+		  			document.getElementById('inst').innerHTML="(Check the box to pause)";
+		  			process=true;
+		  		}
+		  		document.getElementById('info').innerHTML=t;
+		  		if(process===true)
+		  		{
+		  			document.getElementById('info').innerHTML+="<br/>"+"Calling getData...";
+		  			getdata();
+		                        document.getElementById('info').innerHTML+="   ...done.<br/>\n";
+		  			//uplot();
+		  		}
 	  		}
-	  		else{
-	  			document.getElementById('info').style.backgroundColor='#cfc';
-	  			document.getElementById('inst').innerHTML="(Check the box to pause)";
-	  			process=true;
-	  		}
-	  		document.getElementById('info').innerHTML=t;
-	  		if(process===true)
-	  		{
-	  			document.getElementById('info').innerHTML+="<br/>"+"Calling getData...";
-	  			getdata();
-	                        document.getElementById('info').innerHTML+="   ...done.<br/>\n";
-	  			//uplot();
-	  		}
+	  		window.isbusy=false;
   		}
-  },500);
+  },50);
 
   var tdiv=null;
   var cssp=null;
