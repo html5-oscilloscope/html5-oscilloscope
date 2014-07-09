@@ -15,6 +15,7 @@
   <script src="underscore-min.js"></script>
   <script>
   window.isbusy=false;
+  window.isbusy2=false;
   window.b2=false;
   
   setInterval(function(){
@@ -73,8 +74,9 @@
 	function getdata()
 	{
 		
-		if(window.recobj.running && window.recorder)
+		if((window.isbusy2 == false) && window.recobj.running && window.recorder)
 		{
+			window.isbusy2 = true;
 		//	__log('getting buffer... '+(new Date()).getTime());
 			window.recorder.getBuffer(function(b){
 				var b1 = getLast1024(b);
@@ -89,7 +91,7 @@
 				//document.getElementById('data1').innerHTML=JSON.stringify(b2);
 				//window.plotd(b2);
 				uplot(b2,-256);
-				window.isbusy=false;
+				window.isbusy2=false;
 			});
 		}
 	}
